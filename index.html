@@ -7,61 +7,71 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Painel Flutuante de Acessibilidade -->
-    <div class="painel-acessibilidade">
-        <button id="btn-diminuir" title="Diminuir letra">A-</button>
-        <button id="btn-aumentar" title="Aumentar letra">A+</button>
-        <button id="theme-toggle" title="Alternar Modo Claro/Escuro">🌓</button>
+    <!-- Painel Flutuante no Canto Superior Direito -->
+    <div class="painel-acessibilidade" aria-label="Painel de Acessibilidade">
+        <button id="btn-diminuir" title="Diminuir tamanho do texto">A-</button>
+        <button id="btn-aumentar" title="Aumentar tamanho do texto">A+</button>
+        <button id="theme-toggle" title="Alternar Modo Claro e Escuro">🌓</button>
     </div>
 
     <header>
-        <h1>Juntos pelo Respeito e Segurança</h1>
-        <p>Campanha Educativa contra o Cyberbullying e Violência à Mulher</p>
+        <div class="conteudo-header">
+            <h1>Juntos pelo Respeito e Segurança</h1>
+            <p>Campanha Educativa contra o Cyberbullying e a Violência à Mulher</p>
+        </div>
     </header>
 
     <main>
-        <!-- Seção de Cyberbullying -->
+        <!-- Seção: Cyberbullying -->
         <section id="cyberbullying" class="card">
-            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Pessoa pensativa olhando para o celular">
+            <div class="imagem-container">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Pessoas interagindo com celular e redes sociais" loading="lazy">
+            </div>
             <div class="info">
                 <h2>O que é Cyberbullying?</h2>
-                <p>Cyberbullying é o uso do espaço virtual, como redes sociais e aplicativos de mensagens, para intimidar, hostilizar ou ofender outras pessoas.</p>
+                <p>Cyberbullying é a prática de praticar violência psicológica, agressão verbal, humilhação ou intimidação no meio digital, como redes sociais, fóruns e aplicativos de mensagem.</p>
                 <ul>
-                    <li><strong>Pense antes de postar:</strong> Palavras na internet têm peso real.</li>
-                    <li><strong>Não se cale:</strong> Bloqueie agressores e denuncie as contas.</li>
-                    <li><strong>Busque ajuda:</strong> Converse com um adulto, professor ou psicólogo de confiança.</li>
+                    <li><strong>Pense antes de postar:</strong> Comentários na internet causam impactos reais na vida das pessoas.</li>
+                    <li><strong>Não alimente o ódio:</strong> Não compartilhe conteúdos que desrespeitem ou expor alheios.</li>
+                    <li><strong>Denuncie e busque ajuda:</strong> Guarde provas (prints) e procure a orientação de um adulto ou autoridade.</li>
                 </ul>
-                <button class="btn-interativo" onclick="mostrarMensagem('O respeito virtual é tão importante quanto o presencial. Promova a empatia e não propague o ódio!')">Dica de Ouro</button>
+                <button class="btn-interativo" onclick="mostrarMensagem('Respeitar no mundo virtual é dever de todos. Seja empático nas redes!')">Dica de Ouro</button>
             </div>
         </section>
 
-        <!-- Seção Agosto Lilás -->
+        <!-- Seção: Agosto Lilás -->
         <section id="agosto-lilas" class="card">
-            <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=800&q=80" alt="Flores em tons de lilás">
+            <div class="imagem-container">
+                <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=800&q=80" alt="Flores em tom lilás simbolizando a campanha Agosto Lilás" loading="lazy">
+            </div>
             <div class="info">
                 <h2>Agosto Lilás e a Lei Maria da Penha</h2>
-                <p>O <strong>Agosto Lilás</strong> é uma campanha nacional que busca conscientizar a sociedade sobre o fim da violência contra a mulher, celebrando também o aniversário da Lei Maria da Penha.</p>
-                <p>A lei é uma ferramenta fundamental para proteger as mulheres e punir os agressores, garantindo medidas protetivas e suporte psicológico.</p>
-                <button class="btn-interativo" onclick="mostrarMensagem('A informação é a melhor arma. Conhecer a lei ajuda a proteger quem precisa!')">Por que a Lei importa?</button>
+                <p>O <strong>Agosto Lilás</strong> é uma campanha nacional dedicada ao combate da violência contra a mulher e ao fortalecimento dos direitos femininos, marcando a criação da Lei Maria da Penha (Lei nº 11.340/2006).</p>
+                <p>A legislação visa prevenir, punir e erradicar a violência doméstica e familiar, garantindo medidas protetivas urgentes e assistência às vítimas.</p>
+                <button class="btn-interativo" onclick="mostrarMensagem('A informação salva vidas. Conhecer seus direitos é o primeiro passo para a proteção.')">Por que a Lei importa?</button>
             </div>
         </section>
 
-        <!-- Seção Conscientização da Não Violência -->
+        <!-- Seção: Conscientização da Não Violência -->
         <section id="violencia-mulher" class="card">
+            <div class="imagem-container">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Mulheres unidas em apoio mútuo" loading="lazy">
+            </div>
             <div class="info">
                 <h2>Diga NÃO à Violência contra a Mulher</h2>
-                <p>A violência nem sempre deixa marcas visíveis. Ela pode ser classificada de cinco formas principais: física, psicológica, moral, sexual e patrimonial. Reconhecer os sinais de um relacionamento abusivo é o primeiro passo para a liberdade.</p>
+                <p>A violência vai além da agressão física. Ela manifesta-se em cinco formas principais: psicológica, física, moral, sexual e patrimonial. Reconhecer os sinais de abuso é fundamental para romper o ciclo da violência.</p>
                 
                 <div class="destaque-alerta">
                     <h3>Você não está sozinha!</h3>
-                    <p>Se você ou alguém que você conhece está passando por isso, peça ajuda. <strong>Ligue 180</strong> (Central de Atendimento à Mulher). A ligação é gratuita e anônima.</p>
+                    <p>Caso você esteja passando por uma situação de violência ou conheça alguém que precise de suporte, procure ajuda imediata.</p>
+                    <p><strong>Ligue 180:</strong> Central de Atendimento à Mulher (Serviço gratuito, anônimo e disponível 24 horas por dia).</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Criado para fins educativos e de conscientização. Espalhe o respeito!</p>
+        <p>&copy; 2026 - Conteúdo Informativo e Educativo. Espalhe o respeito e a conscientização!</p>
     </footer>
 
     <script src="script.js"></script>
