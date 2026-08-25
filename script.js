@@ -1,13 +1,11 @@
-// Função para os botões interativos das seções (Dica de Ouro, etc.)
+// Alerta Interativo para os botões das seções
 function mostrarMensagem(mensagem) {
     alert(mensagem);
 }
 
 // ----------------------------------------------------
-// LÓGICA DE ACESSIBILIDADE
+// GERENCIAMENTO DE TEMA (CLARO / ESCURO)
 // ----------------------------------------------------
-
-// 1. Alternar Tema (Claro / Escuro)
 const themeToggleBtn = document.getElementById('theme-toggle');
 const body = document.body;
 
@@ -15,42 +13,42 @@ themeToggleBtn.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
 });
 
-// 2. Aumentar e Diminuir Fonte Proporcionalmente
+// ----------------------------------------------------
+// REDIMENSIONAMENTO DE FONTE APENAS PARA CONTEÚDO
+// ----------------------------------------------------
 const btnAumentar = document.getElementById('btn-aumentar');
 const btnDiminuir = document.getElementById('btn-diminuir');
 
-// Fator de escala inicial (1 = 100%)
-let multiplicadorFonte = 1.0;
+let multiplicador = 1.0;
 
 btnAumentar.addEventListener('click', () => {
-    if (multiplicadorFonte < 1.5) { // Limite máximo de 150%
-        multiplicadorFonte += 0.1;
-        atualizarTamanhoTextos();
+    if (multiplicador < 1.4) { // Limite de 140%
+        multiplicador += 0.1;
+        aplicarTamanhoFonte();
     }
 });
 
 btnDiminuir.addEventListener('click', () => {
-    if (multiplicadorFonte > 0.8) { // Limite mínimo de 80%
-        multiplicadorFonte -= 0.1;
-        atualizarTamanhoTextos();
+    if (multiplicador > 0.8) { // Limite de 80%
+        multiplicador -= 0.1;
+        aplicarTamanhoFonte();
     }
 });
 
-function atualizarTamanhoTextos() {
-    // Seleciona apenas os elementos de texto do conteúdo da página
-    const elementosTexto = document.querySelectorAll(
-        'header h1, header p, .info h2, .info p, .info li, .destaque-alerta h3, .destaque-alerta p, footer p, .btn-interativo'
+function aplicarTamanhoFonte() {
+    // Seleciona exclusivamente os elementos de texto da página
+    const elementosParaRedimensionar = document.querySelectorAll(
+        'header h1, header p, .info h2, .info p, .info li, .destaque-alerta h3, .destaque-alerta p, .btn-interativo, footer p'
     );
 
-    elementosTexto.forEach(el => {
-        // Guarda o tamanho original do elemento na primeira vez que for executado
-        if (!el.dataset.tamanhoOriginal) {
-            const estiloComputado = window.getComputedStyle(el);
-            el.dataset.tamanhoOriginal = parseFloat(estiloComputado.fontSize);
+    elementosParaRedimensionar.forEach(el => {
+        // Armazena o tamanho original em px na primeira execução
+        if (!el.dataset.tamanhoBase) {
+            const estilo = window.getComputedStyle(el);
+            el.dataset.tamanhoBase = parseFloat(estilo.fontSize);
         }
 
-        // Aplica o novo tamanho baseado no tamanho original * multiplicador
-        const tamanhoBase = parseFloat(el.dataset.tamanhoOriginal);
-        el.style.fontSize = (tamanhoBase * multiplicadorFonte) + 'px';
+        const tamanhoOriginal = parseFloat(el.dataset.tamanhoBase);
+        el.style.fontSize = (tamanhoOriginal * multiplicador) + 'px';
     });
 }
